@@ -34,11 +34,9 @@ function askQuestion() {
   // return candidateAnswer;
 
   for (let i = 0; i < questions.length; i++) {
-    // candidateAnswers = input.question(`${(i + 1)}) ${questions[i ]} \nYour Answer: `);
-    // console.log(`Correct Answer: ${ correctAnswers[i]}`);
-    // console.log(candidateAnswers);
-    candidateAnswers.push(input.question(`${i + 1}) ${questions[i]}`));
 
+    candidateAnswers.push(input.question(`${i + 1}) ${questions[i]} \n Your Answer: ${candidateAnswer}`));
+    console.log(`Correct Answer: ${correctAnswers[i]}`);
   }
 
 
@@ -55,12 +53,10 @@ function gradeQuiz(candidateAnswers) {
   // }
 
   for (let i = 0; i < questions.length; i++) {
-    console.log(`Your Answer: ${candidateAnswers[i]}`);
 
     if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
-      console.log(`Correct Answer: ${correctAnswers[i]}`);
     } else {
-      console.log(`Wrong answer! The correct answer is: ${correctAnswers[i]}`);
+      console.log(`${candidateAnswers[i]} is the wrong answer! The correct answer is: ${correctAnswers[i]}`);
     }
   }
 
@@ -73,15 +69,15 @@ function gradeQuiz(candidateAnswers) {
   let numberOfQuizQuestions = correctAnswers.length;
   let grade = (numberOfCorrectAnswers / numberOfQuizQuestions) * 100;  //TODO 3.2 use this variable to calculate the candidates score.
 
-console.log(`>>> Overall Grade ${grade}% (${numberOfCorrectAnswers} of ${numberOfQuizQuestions} responses correct) <<< `);
+  console.log(`>>> Overall Grade ${grade}% (${numberOfCorrectAnswers} of ${numberOfQuizQuestions} responses correct) <<< `);
 
-if (grade >= 80){
-  console.log(`>>> Status: PASSED! <<<`)
-}else{
-  console.log(`>>> Status: FAILED! <<<`)
-}
+  if (grade >= 80) {
+    console.log(`>>> Status: PASSED! <<<`)
+  } else {
+    console.log(`>>> Status: FAILED! <<<`)
+  }
 
-return grade;
+  return grade;
 }
 
 function runProgram() {
